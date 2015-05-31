@@ -1,1 +1,0 @@
-shutit_source_to_image: description of module directory in here
