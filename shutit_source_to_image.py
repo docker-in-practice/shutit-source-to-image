@@ -62,12 +62,17 @@ class shutit_source_to_image(ShutItModule):
 			shutit.fail('Pass in the --mount_docker argument to the shutit build command.')
 		shutit.install('golang')
 		shutit.install('git')
-		shutit.install('docker')
+		shutit.install('docker.io')
+		shutit.install('wget')
+		shutit.send('wget -qO- https://get.docker.com/builds/Linux/x86_64/docker-latest > docker')
+		shutit.send('chmod +x docker')
+		shutit.send('mv docker /usr/bin/docker')
 		shutit.send('mkdir -p /opt/go')
 		shutit.add_to_bashrc('export GOPATH=/opt/go')
 		shutit.send('export GOPATH=/opt/go')
 		shutit.send('go get github.com/openshift/source-to-image')
 		shutit.send('export PATH=$PATH:${GOPATH}/src/github.com/openshift/source-to-image/_output/local/go/bin/')
+		shutit.send('cd ${GOPATH}/src/github.com/openshift/source-to-image')
 		shutit.send('hack/build-go.sh')
 		return True
 
