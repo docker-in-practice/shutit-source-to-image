@@ -1,2 +1,1 @@
-# shutit-source-to-image
-Source to image build in ShutIt
+shutit_source_to_image: description of module directory in here
