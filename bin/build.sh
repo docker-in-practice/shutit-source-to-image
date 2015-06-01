@@ -7,7 +7,7 @@ then
 	exit 1
 fi
 pushd ..
-$SHUTIT build --mount_docker "$@"
+$SHUTIT build --mount_docker --shutit_module_path $(dirname $SHUTIT)/library/go "$@"
 if [[ $? != 0 ]]
 then
 	popd
