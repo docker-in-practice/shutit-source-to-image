@@ -11,7 +11,7 @@ rm:false
 
 [repository]
 # COPY THESE TO YOUR ~/.shutit/config FILE AND FILL OUT ITEMS IN CAPS
-user:imiell
+user:dockerinpractice
 ## Fill these out in server- and username-specific config (also in this directory)
 password:Dhazzard
 ## Fill these out in server- and username-specific config (also in this directory)
