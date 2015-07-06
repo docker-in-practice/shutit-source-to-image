@@ -63,9 +63,13 @@ class shutit_source_to_image(ShutItModule):
 		shutit.install('git')
 		shutit.install('docker.io')
 		shutit.install('wget')
+		shutit.install('golang')
 		shutit.send('wget -qO- https://get.docker.com/builds/Linux/x86_64/docker-latest > docker')
 		shutit.send('chmod +x docker')
 		shutit.send('mv docker /usr/bin/docker')
+		shutit.send('mkdir /root/go')
+		shutit.send('export GOPATH=/root/go')
+		shutit.add_to_bashrc('export GOPATH=/root/go')
 		shutit.send('go get github.com/openshift/source-to-image')
 		shutit.add_to_bashrc('export PATH=$PATH:${GOPATH}/src/github.com/openshift/source-to-image/_output/local/go/bin/')
 		shutit.send('export PATH=$PATH:${GOPATH}/src/github.com/openshift/source-to-image/_output/local/go/bin/')
@@ -100,6 +104,6 @@ def module():
 		'openshift.shutit_source_to_image.shutit_source_to_image.shutit_source_to_image', 1822046026.00,
 		description='',
 		maintainer='ian.miell@gmail.com',
-		depends=['shutit.tk.go.go']
+		depends=['shutit.tk.setup']
 	)
 
