@@ -103,6 +103,7 @@ def module():
 	return shutit_source_to_image(
 		'openshift.shutit_source_to_image.shutit_source_to_image.shutit_source_to_image', 1822046026.00,
 		description='',
+		delivery_methods=['docker'],
 		maintainer='ian.miell@gmail.com',
 		depends=['shutit.tk.setup']
 	)
