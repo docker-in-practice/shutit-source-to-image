@@ -24,6 +24,7 @@ class shutit_source_to_image(ShutItModule):
 		shutit.send('export PATH=$PATH:${GOPATH}/src/github.com/openshift/source-to-image/_output/local/go/bin/')
 		shutit.send('cd ${GOPATH}/src/github.com/openshift/source-to-image')
 		shutit.send('hack/build-go.sh')
+		shutit.send('cp ./root/go/src/github.com/openshift/source-to-image/_output/local/bin/linux/amd64/sti /usr/local/bin')
 		return True
 
 	def get_config(self, shutit):
